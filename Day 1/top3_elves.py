@@ -1,7 +1,7 @@
 # Author: Rigoberto Mejia
 # GitHub username: rmejia4209
 # Date: 12/05/2022
-# Description: This program determines the elf that has the most amount of calories available
+# Description: This program determines the total calorie count of the top 3 elves
 
 
 # elf_calories is a list that will hold the total calories carried by each elf
@@ -16,11 +16,13 @@ with open("calories_by_elf.txt", "r") as file_object:
             elf_calories.append(calories)  # add calories to the list
             calories = 0  # reset calorie counter to 0
 
-king_elf = elf_calories.index(max(elf_calories))  # index of the elf with most amount of calories
+print(elf_calories)
+elf_calories.sort(reverse=True)
+print(elf_calories)
+calories_of_top_3 = 0
 
-print("The elf with the most amount of calories is ", king_elf, ".", sep="")
-print("He has", str(elf_calories[king_elf]), "calories on him.")
+for i in range(0,3):
+    print("adding", str(elf_calories[i]))
+    calories_of_top_3 += elf_calories[i]
 
-
-
-
+print("The top three elves have", str(calories_of_top_3), "calories amongst themselves.")
